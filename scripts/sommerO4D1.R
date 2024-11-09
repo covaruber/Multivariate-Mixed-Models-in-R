@@ -4,7 +4,7 @@ require(sommer)
 require(ape)
 load("MMM_wiki_data.RData")
 ## example based on data from supplement of
-# Adams, D. C., 2008. Phylogenetic meta-analysis. Evolution 62: 567–572.
+# Adams, D. C., 2008. Phylogenetic meta-analysis. Evolution 62: 567?572.
 # stored in objects "Adams.data" and "phylo.nexus.adams" where last one phylogenetic tree in ape format
 # The original data by Adams needs to be standardised to a Z score
 Adams.data$Z=0.5*log((1+Adams.data$corr)/(1-Adams.data$corr))
@@ -21,11 +21,11 @@ axisPhylo()
 A.phylo<- 1-(cophenetic(phylo.nexus.adams2)/2)
 # sommer (mmer2) has not the capacity for weights and hence not for meta-analysis
 # sommer can fit the basic phylogenetic model specified by 
-# Lynch, M., 1991. Methods for the analysis of comparative data in evolutionary biology. Evolution 45: 1065–1080. 
-# Pagel, M., 1999. Inferring the historical patterns of biological evolution. Nature 401: 877–884.
+# Lynch, M., 1991. Methods for the analysis of comparative data in evolutionary biology. Evolution 45: 1065?1080. 
+# Pagel, M., 1999. Inferring the historical patterns of biological evolution. Nature 401: 877?884.
 # which is model 7 (m7) in the overview of
 #HADFIELD, J. D. and NAKAGAWA, S. (2010), General quantitative genetic methods for comparative biology: phylogenies, taxonomies and multi-trait models for continuous and categorical characters. 
-# Journal of Evolutionary Biology, 23: 494–508. 
+# Journal of Evolutionary Biology, 23: 494?508. 
 # see this last publication for more details
 m7<-mmer2(Z~1, random=~g(tips), G=list(tips=A.phylo), data=Adams.data) 
 summary(m7)
@@ -63,3 +63,6 @@ pin(m7.biv, corr.pheno.Z1.Z2~(V2+V5)/sqrt((V1+V4)*(V3+V6)))
 
 
 #save(list=c("Adams.data", "df.z", "gryphondata", "gryphonped", "phylo.nexus.adams"), file="MMM_wiki_data.RData")
+
+
+# newversions
